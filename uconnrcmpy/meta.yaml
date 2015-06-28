@@ -1,0 +1,33 @@
+package:
+    name: uconnrcmpy
+    version: "1.0.0"
+
+source:
+    git_url: https://github.com/bryanwweber/UConnRCMPy.git
+    git_rev: "v1.0.0"
+
+build:
+    entry_points:
+        - ignloop = uconnrcmpy.ign_loop:main
+
+requirements:
+    build:
+        - python
+        - setuptools
+    run:
+        - python
+        - numpy
+        - matplotlib
+        # - cantera
+
+# Conda cannot install cantera into the test environment and cannot
+# check that cantera is installed already, so these have to be
+# commented out until a solution is devised.
+# test:
+#     imports:
+#         - uconnrcmpy
+
+about:
+    home: https://github.com/bryanwweber/UConnRCMPy
+    license: MIT
+    summary: RCM data processing using Python
