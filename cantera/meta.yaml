@@ -1,0 +1,17 @@
+package:
+    name: cantera
+    version: "2.3.0a1"
+source:
+    path: /home/bryan/development/cantera
+build:
+    number: 0
+requirements:
+    build:
+      - python
+      - numpy
+    run:
+      - python
+      - numpy
+# test:
+#     imports:
+#       - cantera
