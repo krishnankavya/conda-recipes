@@ -1,0 +1,24 @@
+package:
+  name: scons
+  version: "2.4.1"
+
+source:
+  fn: scons-2.4.1.tar.gz
+  url: https://pypi.python.org/packages/source/S/SCons/scons-2.4.1.tar.gz
+  md5: 78a7e0d8ae778474ad02f75256d28897
+
+build:
+  number: 0
+
+requirements:
+  build:
+    - python
+
+  run:
+    - python
+
+about:
+  home: http://www.scons.org/
+  license: MIT
+  summary: 'Open Source next-generation build tool.'
+
