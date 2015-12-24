@@ -1,8 +1,7 @@
 @ECHO off
 conda env remove -y -n cantera-build
-conda create -y -n cantera-build python=2.7 cython numpy pywin32
-conda install -y --use-local -n cantera-build scons
 
+conda create -y -n cantera-build -c bryanwweber python=2.7 cython numpy pywin32 scons
 SET PY_MAJ_VER=%PY_VER:~0,1%
 SET /A CPU_USE=%CPU_COUNT% / 2
 
