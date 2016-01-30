@@ -27,7 +27,6 @@ scons clean
 # We want neither the MATLAB interface nor the Fortran interface
 echo "matlab_toolbox='n'" >> cantera.conf
 echo "f90_interface='n'" >> cantera.conf
-echo "system_sundials='n'" >> cantera.conf
 
 # Run SCons to build the proper Python interface
 if [ "${PY_MAJ_VER}" == "2" ]; then

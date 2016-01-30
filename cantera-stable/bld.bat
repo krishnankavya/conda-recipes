@@ -35,7 +35,6 @@ ECHO msvc_version='14.0' >> cantera.conf
 ECHO env_vars='all' >> cantera.conf
 ECHO matlab_toolbox='n' >> cantera.conf
 ECHO f90_interface='n' >> cantera.conf
-ECHO system_sundials='n' >> cantera.conf
 
 :: Select which version of the interface should be built
 IF %PY_MAJ_VER% EQU 2 GOTO PYTHON2
