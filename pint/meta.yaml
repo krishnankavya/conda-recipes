@@ -1,11 +1,11 @@
 package:
   name: pint
-  version: "0.6"
+  version: "0.7.1"
 
 source:
-  fn: Pint-0.6.zip
-  url: https://pypi.python.org/packages/source/P/Pint/Pint-0.6.zip
-  md5: 88aa0918019071546b10c5fbdc91ae5e
+  fn: Pint-0.7.1.tar.gz
+  url: https://pypi.python.org/packages/source/P/Pint/Pint-0.7.1.tar.gz
+  md5: 1aa8d5188c6216cf42f0c7b7ea75ed07
 #  patches:
    # List any patch files here
    # - fix.patch
