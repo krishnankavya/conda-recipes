@@ -1,0 +1,71 @@
+package:
+  name: oauth2client
+  version: "2.0.2"
+
+source:
+  fn: oauth2client-2.0.2.tar.gz
+  url: https://pypi.python.org/packages/source/o/oauth2client/oauth2client-2.0.2.tar.gz
+  md5: de8d36e60e456df226720146efb1073d
+#  patches:
+   # List any patch files here
+   # - fix.patch
+
+# build:
+  # noarch_python: True
+  # preserve_egg_dir: True
+  # entry_points:
+    # Put any entry points (scripts to be generated automatically) here. The
+    # syntax is module:function.  For example
+    #
+    # - oauth2client = oauth2client:main
+    #
+    # Would create an entry point called oauth2client that calls oauth2client.main()
+
+
+  # If this is a new build for the same version, increment the build
+  # number. If you do not include this key, it defaults to 0.
+  # number: 1
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - httplib2 >=0.9.1
+    - pyasn1 >=0.1.7
+    - pyasn1-modules >=0.0.5
+    - rsa >=3.1.4
+    - six >=1.6.1
+
+  run:
+    - python
+    - httplib2 >=0.9.1
+    - pyasn1 >=0.1.7
+    - pyasn1-modules >=0.0.5
+    - rsa >=3.1.4
+    - six >=1.6.1
+
+test:
+  # Python imports
+  imports:
+    - oauth2client
+
+  # commands:
+    # You can put test commands to be run here.  Use this to test that the
+    # entry points work.
+
+
+  # You can also put a file called run_test.py in the recipe that will be run
+  # at test time.
+
+  # requires:
+    # Put any additional test requirements here.  For example
+    # - nose
+
+about:
+  home: http://github.com/google/oauth2client/
+  license: Apache Software License
+  summary: 'OAuth 2.0 client library'
+
+# See
+# http://docs.continuum.io/conda/build.html for
+# more information about meta.yaml
