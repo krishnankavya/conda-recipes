@@ -1,0 +1,17 @@
+package:
+ name: sundials
+ version: "2.6.2"
+source:
+  fn: sundials-2.6.2.tar.gz
+  url: http://computation.llnl.gov/projects/sundials-suite-nonlinear-differential-algebraic-equation-solvers/download/sundials-2.6.2.tar.gz
+  md5: 3deeb0ede9f514184c6bd83ecab77d95
+build:
+  number: 2
+  features:
+    - nomkl
+requirements:
+  build:
+    - cmake >=2.8.1
+    - gcc
+  run:
+    - gcc
