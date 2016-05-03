@@ -1,0 +1,29 @@
+package:
+    name: cantera
+    version: "2.2.1"
+source:
+    fn: v2.2.1.tar.gz
+    url: https://github.com/Cantera/cantera/archive/v2.2.1.tar.gz
+    md5: 9d1919bdef39ddec54485fc8a741a3aa
+build:
+    number: 2
+    features:
+      - nomkl
+requirements:
+    build:
+      - python
+      - numpy
+      - cython
+      - sundials
+      - nomkl
+    run:
+      - python
+      - numpy
+      - sundials
+      - nomkl
+test:
+    imports:
+      - cantera
+about:
+    home: http://www.cantera.org
+    summary: "Chemical kinetics, thermodynamics, and transport tool suite"
