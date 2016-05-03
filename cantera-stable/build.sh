@@ -6,7 +6,7 @@ conda env remove -yq -n cantera-builder
 # Create a conda environment to build Cantera. It has to be Python 2, for
 # SCons compatibility. When SCons is available for Python 3, these machinations
 # can be removed
-conda create -yq -n cantera-builder python=2 numpy scons cython
+conda create -yq -n cantera-builder python=2 numpy scons cython sundials mkl
 
 # The major version of the Python that will be used for the installer, not the
 # version used for building
@@ -20,6 +20,11 @@ scons clean
 # We want neither the MATLAB interface nor the Fortran interface
 echo "matlab_toolbox='n'" >> cantera.conf
 echo "f90_interface='n'" >> cantera.conf
+echo "blas_lapack_libs = 'm,dl,mkl_rt,mkl_intel_lp64,mkl_core,mkl_intel_thread,iomp5'" >> cantera.conf
+echo "blas_lapack_dir = '$LD_RUN_PATH'" >> cantera.conf
+echo "use_sundials='y'" >> cantera.conf
+echo "sundials_include='$LD_RUN_PATH/../include'" >> cantera.conf
+echo "sundials_libdir='$LD_RUN_PATH'" >> cantera.conf
 
 set -x
 
