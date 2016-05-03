@@ -12,13 +12,12 @@ build:
 
 requirements:
   build:
-    - python=2
+    - python
 
   run:
-    - python=2
+    - python
 
 about:
   home: http://www.scons.org/
   license: MIT
   summary: 'Open Source next-generation build tool.'
-
