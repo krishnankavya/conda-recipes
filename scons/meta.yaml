@@ -1,21 +1,21 @@
 package:
   name: scons
-  version: "2.4.1"
+  version: "2.5.0"
 
 source:
-  fn: scons-2.4.1.tar.gz
-  url: https://pypi.python.org/packages/source/S/SCons/scons-2.4.1.tar.gz
-  md5: 78a7e0d8ae778474ad02f75256d28897
+  fn: scons-2.5.0.tar.gz
+  url: https://pypi.python.org/packages/source/S/SCons/scons-2.5.0.tar.gz
+  md5: bda5530a70a41a7831d83c8b191c021e
 
 build:
   number: 0
 
 requirements:
   build:
-    - python
+    - python=2
 
   run:
-    - python
+    - python=2
 
 about:
   home: http://www.scons.org/
