@@ -12,16 +12,16 @@ conda create -yq -n cantera-builder python=2 numpy scons cython
 # version used for building
 PY_MAJ_VER=${PY_VER:0:1}
 
-# Using activate to activate the build environement didn't seem to work, so set
-# the path manually
-OLD_PATH=$PATH
-export PATH=${PREFIX%_build}cantera-builder/bin:$PATH
+set +x
+source activate cantera-builder
 
 scons clean
 
 # We want neither the MATLAB interface nor the Fortran interface
 echo "matlab_toolbox='n'" >> cantera.conf
 echo "f90_interface='n'" >> cantera.conf
+
+set -x
 
 # Run SCons to build the proper Python interface
 if [ "${PY_MAJ_VER}" == "2" ]; then
@@ -32,10 +32,10 @@ else
 fi
 
 # Remove the builder environment
+set +x
+source deactivate
+set -x
 conda env remove -yq -n cantera-builder
-
-# Reset the PATH
-export PATH=$OLD_PATH
 
 # Change to the Python interface directory and run the installer using the
 # proper version of Python.
