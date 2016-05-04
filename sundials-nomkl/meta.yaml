@@ -12,8 +12,8 @@ build:
 requirements:
   build:
     - cmake >=2.8.1
-    - gcc
+    - gcc # [linux]
     - nomkl
   run:
-    - gcc
+    - gcc # [linux]
     - nomkl
