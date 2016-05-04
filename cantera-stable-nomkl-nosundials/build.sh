@@ -23,10 +23,9 @@ echo "f90_interface='n'" >> cantera.conf
 
 set -x
 
-
 # Run SCons to build the proper Python interface
 if [ "${PY_MAJ_VER}" == "2" ]; then
-    conda install -c bryanwweber 3to2
+    conda install -yq -c bryanwweber 3to2
     scons build -j$((CPU_COUNT/2)) python3_package='n' python_cmd=$PYTHON python_package='full'
 else
     scons build -j$((CPU_COUNT/2)) python3_package='y' python3_cmd=$PYTHON python_package='none'
