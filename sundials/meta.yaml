@@ -6,10 +6,12 @@ source:
   url: http://computation.llnl.gov/projects/sundials-suite-nonlinear-differential-algebraic-equation-solvers/download/sundials-2.6.2.tar.gz
   md5: 3deeb0ede9f514184c6bd83ecab77d95
 build:
-  number: 1
+  number: 3
 requirements:
   build:
     - cmake >=2.8.1
     - mkl
+    - gcc # [linux]
   run:
     - mkl
+    - gcc # [linux]
