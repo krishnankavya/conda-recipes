@@ -6,7 +6,7 @@ conda env remove -yq -n cantera-builder
 # Create a conda environment to build Cantera. It has to be Python 2, for
 # SCons compatibility. When SCons is available for Python 3, these machinations
 # can be removed
-conda create -yq -n cantera-builder python=2 numpy scons cython sundials nomkl
+conda create -yq -n cantera-builder python=2 numpy=$NPY_VER scons cython sundials nomkl
 
 # The major version of the Python that will be used for the installer, not the
 # version used for building
