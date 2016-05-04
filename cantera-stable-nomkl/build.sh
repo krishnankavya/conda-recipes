@@ -21,8 +21,8 @@ scons clean
 echo "matlab_toolbox='n'" >> cantera.conf
 echo "f90_interface='n'" >> cantera.conf
 echo "use_sundials='y'" >> cantera.conf
-echo "sundials_include='$LD_RUN_PATH/../include'" >> cantera.conf
-echo "sundials_libdir='$LD_RUN_PATH'" >> cantera.conf
+echo "sundials_include='$PREFIX/include'" >> cantera.conf
+echo "sundials_libdir='$PREFIX/lib'" >> cantera.conf
 
 set -x
 
