@@ -14,13 +14,13 @@ requirements:
       - python
       - numpy x.x
       - cython
-      - sundials
       - nomkl
+      - sundials
     run:
       - python
       - numpy x.x
-      - sundials
       - nomkl
+      - sundials
 test:
     imports:
       - cantera
