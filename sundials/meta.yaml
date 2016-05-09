@@ -6,7 +6,7 @@ source:
   url: http://computation.llnl.gov/projects/sundials-suite-nonlinear-differential-algebraic-equation-solvers/download/sundials-2.6.2.tar.gz
   md5: 3deeb0ede9f514184c6bd83ecab77d95
 build:
-  number: 3
+  number: 4
 requirements:
   build:
     - cmake >=2.8.1
@@ -15,3 +15,8 @@ requirements:
   run:
     - mkl
     - gcc # [linux]
+about:
+  home: http://computation.llnl.gov/projects/sundials-suite-nonlinear-differential-algebraic-equation-solvers
+  license: BSD
+  license_file: LICENSE
+  summary: SUNDIALS, the SUite of Nonlinear and DIfferential/ALgebraic Equation Solvers
