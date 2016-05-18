@@ -1,0 +1,13 @@
+@ECHO off
+
+mkdir build
+cd build
+
+cmake %SRC_DIR% -DBUILD_SHARED_LIBS=ON -DBUILD_STATIC_LIBS=OFF -G"NMake Makefiles" ^
+-DEXAMPLES_ENABLE=OFF -DEXAMPLES_INSTALL=OFF -DCMAKE_INSTALL_PREFIX=%LIBRARY_PREFIX% ^
+-DLAPACK_ENABLE=ON -DLAPACK_LIBRARIES="%LIBRARY_BIN%\mkl_core.lib;%LIBRARY_BIN%\mkl_intel_thread.lib;%LIBRARY_BIN%\libiomp5md.lib"
+
+
+nmake
+
+nmake install
