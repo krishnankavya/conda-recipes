@@ -1,7 +1,7 @@
 @ECHO off
 
 :: Remove the old builder environment, if it exists
-conda env remove -y -n cantera-builder
+CALL conda env remove -yq -n cantera-builder
 
 :: Create a conda environment to build Cantera. It has to be Python 2, for
 :: Scons compatibility. When SCons is available for Python 3, these machinations
@@ -10,7 +10,7 @@ conda env remove -y -n cantera-builder
 :: the conda repositories is 2.3.0. Unfortunately, using VS 2015 requires SCons
 :: 2.4.1. This version is available from my channel on anaconda.org, so we add
 :: -c bryanwweber to pick up SCons from that channel.
-conda create -y -n cantera-builder -c bryanwweber python=2 cython numpy pywin32 scons 3to2
+CALL conda create -yq -n cantera-builder -c cantera/label/builddeps python=2 cython numpy pywin32 scons
 
 :: The major version of the Python that will be used for the installer, not the
 :: version used for building
@@ -19,9 +19,8 @@ SET PY_MAJ_VER=%PY_VER:~0,1%
 :: Set the number of CPUs to use in building
 SET /A CPU_USE=%CPU_COUNT% / 2
 
-:: Using the activate script didn't seems to work, so set the PATH manually
-SET OLD_PATH=%PATH%
-SET PATH=%PREFIX:~0,-6%cantera-builder\bin;%PREFIX:~0,-6%cantera-builder\Scripts;%PATH%
+:: Set up to use the cantera-builder environment
+CALL activate.bat cantera-builder
 
 :: Have to use CALL to prevent the script from exiting after calling SCons
 CALL scons clean
@@ -31,6 +30,7 @@ CALL scons clean
 ECHO msvc_version='14.0' >> cantera.conf
 ECHO env_vars='all' >> cantera.conf
 ECHO matlab_toolbox='n' >> cantera.conf
+ECHO debug='n' >> cantera.conf
 ECHO f90_interface='n' >> cantera.conf
 ECHO system_sundials='n' >> cantera.conf
 
@@ -40,6 +40,7 @@ IF %PY_MAJ_VER% EQU 3 GOTO PYTHON3
 
 :PYTHON2
 ECHO Building for Python 2
+CALL conda install -c cantera/label/builddeps 3to2
 CALL scons build -j%CPU_COUNT% python3_package=n python_cmd="%PYTHON%" python_package=full
 GOTO BUILD_SUCCESS
 
@@ -49,9 +50,9 @@ CALL scons build -j%CPU_COUNT% python3_package=y python3_cmd="%PYTHON%" python_p
 GOTO BUILD_SUCCESS
 
 :BUILD_SUCCESS
-:: Remove the builder environment and reset the path
-conda env remove -y -n cantera-builder
-SET PATH=%OLD_PATH%
+:: Reset the environment and remove the builder environment
+CALL deactivate.bat
+CALL conda env remove -yq -n cantera-builder
 
 :: Change to the Python interface directory and run the installer using the
 :: proper version of Python.
